@@ -15,15 +15,48 @@ function App() {
   else {
     console.log("Beeeeeeh!")
   }
-  for (let i: number = 10; i > 0; i--) {
+  for (let i: number = 5; i > 0; i--) {
     if (sum > 10) {
       console.log("Hello world", sum);
       sum--;
     } else {
-      console.log("Destroy world",sum)
+      console.log("Destroy world", sum)
       sum++;
     }
   }
+  //arrow function using typescript
+  const subT = (x: number, y: number) => {
+    if (x > y) {
+      return (x - y);
+    } else {
+      return (y - x);
+    }
+  }
+  for (let i: number = 5; i > 0; i--) {
+    console.log("sub", subT(20, i));
+  }
+
+  // Interface
+
+  interface User {
+    uId: number;
+    uName: string;
+  }
+  let user1: User = { uId: 1, uName: "Rafiul" }
+  console.log(user1);
+  let user2: User = { uId: 2, uName: "Fahim" }
+  console.log(user2);
+
+  let user3: User = { uId: 3, uName: "Faisal" }
+  console.log(user3);
+  //interface for arrays
+  interface NumberList {
+    [index: number]: number
+  }
+  let numArr:  NumberList = [1, 2, 3];
+  console.log(numArr[0]) 
+
+
   return (
     <>
       <h1>{msg}</h1>
