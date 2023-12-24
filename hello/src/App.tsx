@@ -53,9 +53,68 @@ function App() {
   interface NumberList {
     [index: number]: number
   }
-  let numArr:  NumberList = [1, 2, 3];
-  console.log(numArr[0]) 
+  let numArr: NumberList = [1, 2, 3];
+  console.log(numArr[0])
 
+  interface Country {
+    name: string;
+    capital: string;
+  }
+  interface CountryList {
+    [index: number]: Country;
+  }
+  let list: CountryList = [{ name: "Bangladesh", capital: "Dhaka" }, { name: "India", capital: "New Delhi" }]
+  console.log(list)
+
+  // optional property in interface
+  interface IEmployee {
+    empCode: number;
+    empName: string;
+    empDept?: string; // "?" this means optional operator
+  }
+
+  let empObj1: IEmployee = {   // OK
+    empCode: 1,
+    empName: "Steve"
+  }
+
+  let empObj2: IEmployee = {    // OK
+    empCode: 1,
+    empName: "Bill",
+    empDept: "IT"
+  }
+  // Extending Interface
+  interface Admin extends IEmployee {
+    adminEmail: string;
+    adminPassword: string;
+  }
+  let empObj3: Admin = {    // OK
+    empCode: 0,
+    empName: "admin",
+    empDept: "admin team",
+    adminEmail: "admin@gmail.com",
+    adminPassword: "admin123456"
+  }
+  console.log(empObj3);
+
+  // classs and constructor
+
+  class Employee {
+
+    empCode: number;
+    empName: string;
+    
+    constructor(empcode: number, empName: string ) {
+        this.empCode = empcode;
+        this.empName = empName;
+    }
+
+    greetings = ()=>{
+      console.log("Hello",this.empName,".Welcome to the company")
+    }
+}
+ const e1:Employee = new Employee(3239,"M Rafiul Faisal");
+ e1.greetings();
 
   return (
     <>
