@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Dummy from './components/Dummy';
 
 function App() {
   const msg: string = "Hello Rafiul";
@@ -103,19 +104,29 @@ function App() {
 
     empCode: number;
     empName: string;
-    
-    constructor(empcode: number, empName: string ) {
-        this.empCode = empcode;
-        this.empName = empName;
+
+    constructor(empcode: number, empName: string) {
+      this.empCode = empcode;
+      this.empName = empName;
     }
 
-    greetings = ()=>{
-      console.log("Hello",this.empName,".Welcome to the company")
+    greetings = () => {
+      console.log("Hello", this.empName, ".Welcome to the company")
     }
-}
- const e1:Employee = new Employee(3239,"M Rafiul Faisal");
- e1.greetings();
+  }
+  const e1: Employee = new Employee(3239, "M Rafiul Faisal");
+  e1.greetings();
 
+  class Developer extends Employee {
+    stake: string;
+
+    constructor(empCode: number, empName: string,stake: string) {
+      super(empCode,empName);
+      this.stake = stake;
+    }
+  }
+   const d1 = new Developer(7, "Sajib", "Angular")
+   d1.greetings();
   return (
     <>
       <h1>{msg}</h1>
@@ -138,6 +149,10 @@ function App() {
       {
         sum > 50 ? <h1>Greater</h1> : <h3>Lesser</h3>
       }
+
+      {/* props in TS */}
+
+      <Dummy/>
     </>
   )
 }
